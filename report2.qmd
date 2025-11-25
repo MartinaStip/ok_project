@@ -20,6 +20,9 @@ metadata-files:
 ---
 ```{=latex}
 \customtitlepage
+```{=latex}
+\tableofcontents
+\newpage
 ```
 
 ```{r include = F}
