@@ -1,3 +1,29 @@
+% vlastní title page
+\newcommand{\customtitlepage}{
+\begin{titlepage}
+    \thispagestyle{empty} % žádné číslo stránky
+    \centering
+    % Obrázek na pozadí
+    \includegraphics[width=\paperwidth]{background.jpg}\par
+    \vspace{2cm}
+    % Název reportu
+    {\Huge \bfseries Report 2025 \par}
+    \vspace{1.5cm}
+    % Autoři
+    {\Large
+    Martina Štípková\\
+    Gabriela Fatková\\
+    František Kalvas\\
+    Lenka Půtová\\
+    Natálie Bečvářová
+    \par}
+    \vfill
+    % Datum
+    {\large \today\par}
+\end{titlepage}
+\newpage
+}
+
 % to automate fixed spaces before one letter words
 %\usepackage{luavlna}
 %\preventsingledebugon
@@ -35,9 +61,12 @@
 
 % TOC (use tocloft instead of KOMA fonts)
 \usepackage{tocloft}
+% Prevent tocloft from redefining \listoflistings (conflicts with Quarto)
+\let\listoflistings\relax
 \renewcommand{\cftchapfont}{\bfseries\fontspec{Franklin Gothic Medium}}
 \renewcommand{\cftsecfont}{\fontspec{Franklin Gothic Book}}
 \renewcommand{\cftsubsecfont}{\fontspec{Franklin Gothic Book}}
 
 % space between top of page and heading
 \renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
+

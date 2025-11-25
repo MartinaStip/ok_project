@@ -1,14 +1,6 @@
 ---
-title: |
-  \includegraphics[width=\paperwidth]{background.jpg}
-  Report 2025
-  
-author: 
-  - Martina Štípková 
-  - Gabriela Fatková
-  - František Kalvas 
-  - Lenka Půtová
-  - Natálie Bečvářová
+title: ""
+author: ""
   
 format: 
   pdf:
@@ -20,13 +12,15 @@ format:
     include-in-header: settings_pdf.tex
 
 filters:
-  #- add-checklist.lua
   - vlnka.lua
 
 metadata-files: 
   - settings.yml
 
 ---
+```{=latex}
+\customtitlepage
+```
 
 ```{r include = F}
 #rm(list = ls())

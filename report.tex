@@ -1,0 +1,277 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  czech,
+  14pt,
+  a4paper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+\usepackage{xcolor}
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm,
+footskip=1.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Franklin Gothic Book}
+  \setsansfont[]{Franklin Gothic Book}
+  \setmonofont[]{Franklin Gothic Book}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[]{Franklin Gothic Book}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+% title page
+\makeatletter
+\renewcommand*{\titlepagetopskip}{0pt} % mezera nad titulem na titlepage
+\makeatother
+
+% to automate fixed spaces before one letter words
+%\usepackage{luavlna}
+%\preventsingledebugon
+%\singlechars{czech}{AIKSOUVZaikosuvz}
+
+% Set main sans-serif font with italic support
+\setsansfont{Franklin Gothic Book}[
+  ItalicFont = Franklin Gothic Book Italic,
+  BoldFont = Franklin Gothic Medium,
+  BoldItalicFont = Franklin Gothic Medium Italic
+]
+
+% Make Franklin Gothic the default family everywhere
+\renewcommand{\familydefault}{\sfdefault}
+
+% Headings
+\setkomafont{chapter}{\bfseries\fontspec{Franklin Gothic Medium}}
+\setkomafont{section}{\bfseries\fontspec{Franklin Gothic Medium}}
+\setkomafont{subsection}{\bfseries\fontspec{Franklin Gothic Medium}}
+\setkomafont{subsubsection}{\bfseries\fontspec{Franklin Gothic Medium}}
+
+% Title block
+\setkomafont{title}{\bfseries\fontspec{Franklin Gothic Medium}}
+\setkomafont{subtitle}{\bfseries\fontspec{Franklin Gothic Medium}}
+
+% Page headers and footers
+\setkomafont{pagehead}{\bfseries\fontspec{Franklin Gothic Medium}}
+\setkomafont{pagenumber}{\fontspec{Franklin Gothic Book}}
+
+% Captions
+\setkomafont{caption}{\bfseries\fontspec{Franklin Gothic Medium}}
+\setkomafont{captionlabel}{\bfseries\fontspec{Franklin Gothic Book}}
+\usepackage{caption}
+\captionsetup[figure]{skip=3pt}
+
+% TOC (use tocloft instead of KOMA fonts)
+\usepackage{tocloft}
+% Prevent tocloft from redefining \listoflistings (conflicts with Quarto)
+\let\listoflistings\relax
+\renewcommand{\cftchapfont}{\bfseries\fontspec{Franklin Gothic Medium}}
+\renewcommand{\cftsecfont}{\fontspec{Franklin Gothic Book}}
+\renewcommand{\cftsubsecfont}{\fontspec{Franklin Gothic Book}}
+
+% space between top of page and heading
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
+
+\KOMAoption{captions}{tableheading,figureheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Obsah}
+\else
+  \newcommand\contentsname{Obsah}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Seznam obrázků}
+\else
+  \newcommand\listfigurename{Seznam obrázků}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Seznam tabulek}
+\else
+  \newcommand\listtablename{Seznam tabulek}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Graf}
+\else
+  \newcommand\figurename{Graf}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabulka}
+\else
+  \newcommand\tablename{Tabulka}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Výpis}
+\newcommand*\listoflistings{\listof{codelisting}{Seznam výpisů}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={ Report 2025},
+  pdfauthor={Martina Štípková; Gabriela Fatková; František Kalvas; Lenka Půtová; Natálie Bečvářová},
+  pdflang={cs},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{\includegraphics[width=\paperwidth]{background.jpg} Report 2025}
+\author{Martina Štípková \and Gabriela Fatková \and František
+Kalvas \and Lenka Půtová \and Natálie Bečvářová}
+\date{}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Obsah}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\chapter{Úvod}\label{uxfavod}
+
+Toto je zpráva.
+
+\chapter{Hlavní zjištění}\label{hlavnuxed-zjiux161tux11bnuxed}
+
+\begin{itemize}
+\item
+  Zjištění 1
+\item
+  Zjištění 2
+\end{itemize}
+
+\chapter{Doporučení}\label{doporuux10denuxed}
+
+\begin{itemize}
+\item
+  Doporučení 1
+\item
+  Doporučení 2
+\end{itemize}
+
+\chapter{Kapitola}\label{kapitola}
+
+
+
+
+\end{document}

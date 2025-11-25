@@ -23,6 +23,6 @@ monofont: "Franklin Gothic Book"
 
 fontsize: 14pt # 12 for pdf
 papersize: a4
-geometry: top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm, footskip=1.5cm
+geometry: top=2cm, bottom=2cm, left=2.5cm, right=2.5cm, footskip=1.5cm
 
 editor: visual
