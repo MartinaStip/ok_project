@@ -1,25 +1,60 @@
-% vlastní title page
+\usepackage{pifont}  % for checkmarks
+\definecolor{uwbblue}{HTML}{1A4C84} % define the color
+\newcommand{\checkbox}{$\square$}
+\newcommand{\checkedbox}{$\boxtimes$}
+
+% Hyperlink color to UWB blue
+\AtBeginDocument{
+\hypersetup{
+    colorlinks=true,
+    linkcolor=uwbblue,
+    filecolor=uwbblue,
+    urlcolor=uwbblue,
+    citecolor=uwbblue
+  }
+}
+
+% custom title page
 \newcommand{\customtitlepage}{
 \begin{titlepage}
-    \thispagestyle{empty} % žádné číslo stránky
-    \centering
-    % Obrázek na pozadí
-    \includegraphics[width=\paperwidth]{background.jpg}\par
+    \thispagestyle{empty} % no page number
+    % Logo 
+    {\raggedright
+    \includegraphics[width=0.65\paperwidth]{logo.png}\par
+    }
     \vspace{2cm}
-    % Název reportu
+    \centering
+    % Title
     {\Huge \bfseries Report 2025 \par}
-    \vspace{1.5cm}
-    % Autoři
+    \vspace{1cm}
+    % Authors
     {\Large
-    Martina Štípková\\
-    Gabriela Fatková\\
-    František Kalvas\\
-    Lenka Půtová\\
-    Natálie Bečvářová
-    \par}
+    \centering
+    Martina Štípková \quad Gabriela Fatková \quad František Kalvas\par
+    Lenka Půtová \quad Natálie Bečvářová \quad Patrik Galeta\par
+    }
     \vfill
-    % Datum
-    {\large \today\par}
+    % Foot info: access rights + relation to risks
+    \noindent
+    \begin{minipage}[t]{0.48\textwidth}
+        \raggedright
+        {\small\color{uwbblue}
+        Režim přístupnosti:\par
+        \checkedbox\ Vedení ZČU\par
+        \checkedbox\ Vedení součástí\par
+        \checkbox\ Zaměstnanci\par
+        \checkbox\ Studující\par  
+        }
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \raggedright
+        {\small\color{uwbblue}
+        Vazba na rizika: \par
+        Oxx/Syy\par
+        }
+    \end{minipage}
+
 \end{titlepage}
 \newpage
 }
